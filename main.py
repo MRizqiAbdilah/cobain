@@ -1,8 +1,18 @@
 import streamlit as st
 import json
+import whisper
 
 st.set_page_config(page_title="Flexible RUBRIC Scoring Tool", layout="wide")
 st.title("Flexible RUBRIC Scoring Tool")
+
+
+# Load Model Whisper
+@st.cache_resource
+def load_model_whisper(model_name:str = "medium"):
+    model = whisper.load_model(model_name)
+    return model
+
+model = load_model_whisper()
 
 # ===================== UPLOAD FILE =====================
 uploaded_files = st.file_uploader(
