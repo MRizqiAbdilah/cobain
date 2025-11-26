@@ -8,7 +8,7 @@ st.title("Flexible RUBRIC Scoring Tool")
 
 # Load Model Whisper
 @st.cache_resource
-def load_model_whisper(model_name:str = "medium"):
+def load_model_whisper(model_name:str = "tiny"):
     model = whisper.load_model(model_name)
     return model
 
